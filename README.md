@@ -1,2 +1,2 @@
 # Z-Machine
-Compilador y solucion de Z-machine
+Compilador y sorting de Z-machine.

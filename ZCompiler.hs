@@ -1,5 +1,5 @@
 {-# LANGUAGE ViewPatterns #-}
-
+module ZCompiler where
 import Data.Functor
 import Control.Applicative
 import Control.Monad.ST
@@ -85,6 +85,6 @@ main = do
       endRAM  = eval (changeTo arraysize initialRAM) code
       finalA  = take (head initialRAM) (tail endRAM)
       correct = compile && isSorted (take (head initialRAM) (tail initialRAM)) finalA
-  if compile then return () else (error "Programa no compila.")
+  unless compile (error "Programa no compila.")
   putStrLn $ (unwords.map show.take m) endRAM
   (print correct >> getLine >> putStr "")
